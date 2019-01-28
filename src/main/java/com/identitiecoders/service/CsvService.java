@@ -101,8 +101,8 @@ public class CsvService {
 				if (dataRules[u].equalsIgnoreCase(column[i])) {
 					if (dataRules[u + 1].equalsIgnoreCase("startsWith")) {
 						result += "\"" + data[i].substring(0, 1).toLowerCase() + "\"" + " ";
-					} else if (dataRules[u + 1].equalsIgnoreCase("startsWith")) {
-						result += "\"" + data[i].substring(dataRules.length, 1).toLowerCase() + "\"" + " ";
+					} else if (dataRules[u + 1].equalsIgnoreCase("endsWith")) {
+						result += "\"" + data[i].charAt(data[i].length() - 1) + "\"" + " ";
 					} else {
 						result += "\"" + data[i].toLowerCase() + "\"" + " ";
 					}
