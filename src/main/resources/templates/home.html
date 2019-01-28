@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spring Boot Thymeleaf</title>
+<link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+	<h1>List of Rules</h1>
+	<a href="#" th:href="@{createrules}">Add Rules</a>
+	<table border="1" style="width: 300px">
+		<tr>
+			<th>Rules ID</th>
+			<th>String Rules</th>
+			<th>Delete Rules</th>
+		</tr>
+		<tr th:each="rules : ${getAllRules}">
+			<td th:text="${rules.id}">Id</td>
+			<td th:text="${rules.stringRules}">String Rules</td>
+			<td><a th:href="@{/delete/{id}(id=${rules.id})}">delete</a></td>
+		</tr>
+	</table>
+	<br />
+	<br />
+	<br />
+	<br />
+	<form method="POST" action="/result" enctype="multipart/form-data">
+		<h1>Upload csv and chose the rule</h1>
+		<input type="file" name="file" /><br /> <br />
+		<table>
+			<tr>
+				<th>Rules :</th>
+				<th><input type="text" name="rules"></th>
+				<th>example rule Id = 1,2,3,4</th>
+			</tr>
+		</table>
+		<input type="submit" value="Submit" /> <br />
+	</form>
+
+</body>
+</html>

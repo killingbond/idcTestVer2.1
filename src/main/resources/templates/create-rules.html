@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spring Boot Thymeleaf</title>
+<link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+	<h2></h2>
+	<h1>Create User</h1>
+	<form th:action="@{/save}" th:object="${rules}" method="POST">
+		<table>
+			<tr>
+				<td>User ID</td>
+				<td><input type="text" th:field="*{stringRules}"  size="50"/></td>
+			<tr>
+				<td colspan="2"><input type="submit" th:value="Submit" /> <a
+					th:href="@{/home}">Cancel</a></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
